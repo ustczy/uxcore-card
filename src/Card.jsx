@@ -58,6 +58,15 @@ class Card extends React.Component {
     };
   }
 
+  componentWillReceiveProps(props) {
+    const { defaultCollapsed } = props;
+    const { collapsed } = this.state;
+
+    if (collapsed !== defaultCollapsed) {
+      this.setState({ collapsed: defaultCollapsed });
+    }
+  }
+
   handleCollapseIconClick = () => {
     this.setState(prevState => ({
       collapsed: !prevState.collapsed,

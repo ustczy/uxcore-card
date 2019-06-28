@@ -49,6 +49,7 @@
     "css-animation": "^1.4.1",
     "prop-types": "15.x",
     "uxcore-animate": "^0.2.2",
+    "uxcore-button": "^0.4.21",
     "uxcore-icon": "^0.1.20",
     "uxcore-tooltip": "^0.4.11"
   },

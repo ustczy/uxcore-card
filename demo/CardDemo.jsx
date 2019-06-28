@@ -8,16 +8,27 @@
 
 import React from 'react';
 import Icon from 'uxcore-icon';
+import Button from 'uxcore-button';
 import Card from '../src';
 
 class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      defaultCollapsed: false,
     };
+
+    this.handleChangeCollapse = this.handleChangeCollapse.bind(this);
+  }
+
+  handleChangeCollapse() {
+    this.setState(preState => ({
+      defaultCollapsed: !preState.defaultCollapsed,
+    }))
   }
 
   render() {
+    const { defaultCollapsed } = this.state;
     const cardProps = {
       title: 'Title Title Title Title Title',
       tip: '这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示这是一个提示',
@@ -30,7 +41,7 @@ class Demo extends React.Component {
       className: 'card-demo',
       showCollapseIcon: true,
       // contentPaddingSize: 'none',
-      defaultCollapsed: false,
+      defaultCollapsed: defaultCollapsed,
       placementOfTip: 'topLeft',
       overlayStyleOfTip: {
         maxWidth: 500,
@@ -52,6 +63,7 @@ class Demo extends React.Component {
             </div>
           </Card>
         </div>
+        <Button onClick={this.handleChangeCollapse}>改变默认状态</Button>
       </div>
     );
   }
